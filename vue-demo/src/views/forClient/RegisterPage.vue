@@ -14,7 +14,7 @@
 <form class="">
   <div class="form-group">
     <label for="inputName">Name</label>
-    <input type="text" class="form-control" id="inputName" placeholder="Enter your full name ..." required v-model="info.fullName">
+    <input type="text" class="form-control" id="inputName" placeholder="Enter your full name ..." required v-model="info.fullname">
   </div>
   <div class="form-group">
     <label for="inputAddress">Address</label>
@@ -56,7 +56,7 @@
   </div>
   <div class="form-row mb-4">
     <div class="form-group col-md-6">
-      <button id="submitButton" type="submit" class="btn btn-primary" v-on:click="getClick">Submit</button>
+      <button id="submitButton" type="button" class="btn btn-primary" v-on:click="getClick">Submit</button>
     </div>
   </div>
 </form>
@@ -79,7 +79,7 @@ export default {
     return {
       states: [],
       info: {
-        fullName: "",
+        fullname: "",
         address: "",
         state: "",
         zip: "",
@@ -109,7 +109,7 @@ export default {
       this.hasError = false;
       this.errorString = "";
 
-      if (!this.info.fullName) {
+      if (!this.info.fullname) {
         this.errorString += "<p>Please input your full name</p>";
         this.hasError = true;
       }
@@ -160,6 +160,17 @@ export default {
         toastr.error("Invalid input");
       } else {
         toastr.success("Your input is ok now");
+
+        axios.post("http://10.145.241.158:1607/info", this.info)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+        this.isRegistering = false;
+        console.log(this.info);
       }
       //API COMMUNICATION SECTION----------------------------------------------------------
     }
