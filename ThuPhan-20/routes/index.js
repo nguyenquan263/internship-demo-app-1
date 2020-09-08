@@ -40,6 +40,9 @@ router.get('/comment/post/:postID', commentController.countCommentBelongToPost);
 //INFORMATION CONTROLLERS
 router.get('/info', infoController.retrieveAll);
 router.post('/info', infoController.create);
+router.get('/info/:id', infoController.retrieveOne);
+router.put('/info/:id', infoController.update)
+router.delete('/info/:id', infoController.delete)
 
 // UNKOWN CONTROLLERS
 router.all('/*', function(req, res) {

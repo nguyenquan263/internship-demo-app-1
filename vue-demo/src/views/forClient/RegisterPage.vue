@@ -73,6 +73,7 @@
 
 <script>
 import axios from 'axios';
+import APILink from '../../utils/APILink';
 
 export default {
   data: function() {
@@ -93,7 +94,7 @@ export default {
   },
   created: function() {
     let self = this;
-    axios.get("https://una.edu/apps/api/states")
+    axios.get(APILink.stateGetterLink)
       .then(function(response) {
         console.log(response.data);
         self.states = response.data;
@@ -161,7 +162,7 @@ export default {
       } else {
         toastr.success("Your input is ok now");
 
-        axios.post("http://10.145.241.158:1607/info", this.info)
+        axios.post(APILink.apiLink + "info", this.info)
           .then(function(response) {
             console.log(response);
           })

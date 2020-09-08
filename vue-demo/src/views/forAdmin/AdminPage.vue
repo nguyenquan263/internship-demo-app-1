@@ -31,59 +31,11 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Utilities:</h6>
-            <router-link to="/admin/admin"><a class="collapse-item" href="#">Admin</a></router-link>
-            <router-link to="/admin/whoami"><a class="collapse-item" href="#">Who Am I</a></router-link>
-            <router-link to="/admin/admin"><a class="collapse-item" href="#">Team Member</a></router-link>
-            <router-link to="/admin/admin"><a class="collapse-item" href="#">About Timeline</a></router-link>
+            <h6 class="collapse-header">Content:</h6>
+            <router-link to="/admin/info"><a class="collapse-item" href="#">Info</a></router-link>
           </div>
         </div>
       </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-video"></i>
-          <span>Video Management</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Utilities:</h6>
-            <router-link to="/admin/videotype"><a class="collapse-item" href="#">Video Types</a></router-link>
-            <router-link to="/admin/video"><a class="collapse-item" href="#">Videos</a></router-link>
-          </div>
-        </div>
-      </li> -->
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsepost" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-cannabis"></i>
-          <span>Post Management</span>
-        </a>
-        <div id="collapsepost" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Utilities:</h6>
-            <router-link to="/admin/posttype"><a class="collapse-item" href="#">Post Types</a></router-link>
-            <router-link to="/admin/post"><a class="collapse-item" href="#">Posts</a></router-link>
-          </div>
-        </div>
-      </li> -->
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseqaa" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-question-circle"></i>
-          <span>Q & A Management</span>
-        </a>
-        <div id="collapseqaa" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Utilities:</h6>
-            <router-link to="/admin/videotype"><a class="collapse-item" href="#">Questions</a></router-link>
-          </div>
-        </div>
-      </li> -->
-
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
