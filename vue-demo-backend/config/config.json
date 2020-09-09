@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "thuphan2020",
+    "database": "vue-demo",
     "host": "localhost",
     "dialect": "mysql",
     "secret": "ThuPhan"

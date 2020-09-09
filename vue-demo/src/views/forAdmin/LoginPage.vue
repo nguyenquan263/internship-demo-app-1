@@ -18,10 +18,10 @@
                     </div>
                     <form class="user"  v-on:keyup.enter="loginClick">
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" id="txtUsername" placeholder="Username..." v-model="username">
+                            <input type="text" class="form-control form-control-user" id="txtUsername" placeholder="Username..." v-model="loginData.username">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="txtPassword" placeholder="Password" v-model="password">
+                            <input type="password" class="form-control form-control-user" id="txtPassword" placeholder="Password" v-model="loginData.password">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-user btn-block" v-on:click="loginClick">Login</button>
@@ -43,18 +43,33 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { getBackendCRUDResponse } from '../../utils/common/notification';
+import router from '../../router';
+
 
 export default {
     name: 'login',
     data: function() {
         return {
-            username: "",
-            password: ""
+            loginData: {
+                username: "",
+                password: ""
+            }
         }
     },
     methods: {
+        ...mapActions(['logIn', 'finalizeLogin']),
         loginClick: function() {
-            toastr.success(this.username +" "+ this.password);
+            this.logIn(this.loginData).then(response => {
+                getBackendCRUDResponse(response);
+
+                if (response.errorCode == 0) {
+                    this.finalizeLogin(response);
+
+                    router.push('/admin/info');
+                }
+            });
         }
     }
 }

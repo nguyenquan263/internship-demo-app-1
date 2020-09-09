@@ -108,7 +108,7 @@
 import { mapActions } from 'vuex';
 import { getBackendCRUDResponse } from '../utils/common/notification';
 import axios from 'axios';
-import APILink from '../utils/APILink';
+import APILink from '../utils/common/APILink';
 
 export default {
     name: 'Admin',
@@ -253,8 +253,6 @@ export default {
 
         $("#btnAdd").click(function () {
             $("#popup").modal('show');
-            $('#statusForm').hide();
-
             self.updateID = -1;
         });
 
@@ -384,7 +382,6 @@ export default {
 
                 console.log(targetInfo);
 
-                $('#statusForm').show();
 
                 $("#popup").modal('show');
               

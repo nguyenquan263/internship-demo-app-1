@@ -73,7 +73,7 @@
 
 <script>
 import axios from 'axios';
-import APILink from '../../utils/APILink';
+import APILink from '../../utils/common/APILink';
 
 export default {
   data: function() {

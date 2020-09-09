@@ -1,5 +1,5 @@
 import axios from 'axios';
-import APILink from '../APILink';
+import APILink from '../common/APILink';
 
 export default {
     getAllInfo() {

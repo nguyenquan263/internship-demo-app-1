@@ -12,7 +12,7 @@
         <div class="sidebar-brand-icon">
 
           <!-- <img width="45px" height="45px" class="rounded-circle" src="../assets/commons/images/tich-logo.jpg"> -->
-          <i class="fas fa-fw fa-user"></i>
+          <i class="fab fa-vuejs"></i>
         </div>
         <div class="sidebar-brand-text mx-2">Admin Page</div>
       </a>
@@ -120,7 +120,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">User Name here</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{currentUserData.data.userInfo.name}}</span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -197,7 +197,19 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
+    
+    data: function() {
+      return {
+        currentUserData: null
+      }
+    },
+    created() {
+      this.currentUserData = this.$store.state.login.currentUser;
+      console.log(this.currentUserData);
+    },
     mounted() {
         // Toggle the side navigation
         $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
