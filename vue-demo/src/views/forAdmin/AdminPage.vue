@@ -120,7 +120,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{currentUserData.data.userInfo.name}}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" v-if="currentUserData">{{currentUserData.data.userInfo.name}}</span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -186,7 +186,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-primary" v-on:click="logOut()" data-dismiss="modal" >Logout</button>
         </div>
       </div>
     </div>
@@ -198,6 +198,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import router from '../../router';
+
 
 export default {
     
@@ -206,9 +208,24 @@ export default {
         currentUserData: null
       }
     },
+    methods: {
+      ...mapActions(['logIn', 'finalizeLogin']),
+      logOut: function() {
+        this.finalizeLogin(null);
+        router.push('/admin/login');
+      }
+    },
     created() {
+
       this.currentUserData = this.$store.state.login.currentUser;
-      console.log(this.currentUserData);
+
+      if (this.currentUserData) {
+        console.log(this.currentUserData);
+        console.log(this.currentUserData.data.token);
+      } else {
+        alert("You don't have authorization!")
+        router.push('/admin/login');
+      }
     },
     mounted() {
         // Toggle the side navigation

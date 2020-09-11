@@ -144,7 +144,7 @@ export default {
         this.hasError = true;
       }
 
-      var phoneRegularExpression = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      var phoneRegularExpression = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
 
       if (!this.info.phone) {
         this.errorString += "<p>Please input your phone number</p>";
