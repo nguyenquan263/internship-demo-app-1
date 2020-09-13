@@ -6,6 +6,7 @@ import Login from '../views/forAdmin/LoginPage.vue'
 import Admin from '../views/forAdmin/AdminPage.vue'
 
 import Info from '../components/InfoComponent.vue'
+import Something from '../components/SomethingComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ Vue.use(VueRouter)
           path: 'info',
           name: 'InfoComponent',
           component: Info
+        },
+        {
+          path: 'something',
+          name: 'SomethingComponent',
+          component: Something
         }
       ]
     }

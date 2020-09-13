@@ -1,4 +1,5 @@
 <template>
+  <div>
   <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -33,6 +34,31 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Content:</h6>
             <router-link to="/admin/info"><a class="collapse-item" href="#">Info</a></router-link>
+            <router-link to="/admin/something"><a class="collapse-item" href="#">Something else ...</a></router-link>
+          </div>
+
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Content:</h6>
+            <router-link to="/admin/info"><a class="collapse-item" href="#">Something else ...</a></router-link>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-bug"></i>
+          <span>Something Management</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Content:</h6>
+            <router-link to="/admin/info"><a class="collapse-item" href="#">Info</a></router-link>
+            <router-link to="/admin/something"><a class="collapse-item" href="#">Something else ...</a></router-link>
+          </div>
+
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Content:</h6>
+            <router-link to="/admin/info"><a class="collapse-item" href="#">Something else ...</a></router-link>
           </div>
         </div>
       </li>
@@ -66,14 +92,14 @@
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
+                <i class="fas fa-bell fa-fw"></i> -->
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
+                <!-- <span class="badge badge-danger badge-counter">3+</span>
+              </a> -->
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
@@ -114,7 +140,7 @@
               </div>
             </li>
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+            <div class="topbar-divider d-none d-sm-block"></div> -->
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -156,7 +182,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Quan Nguyen 2017</span>
           </div>
         </div>
       </footer>
@@ -194,6 +220,7 @@
 
 
 </body>
+</div>
 </template>
 
 <script>
