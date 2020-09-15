@@ -8,6 +8,8 @@ import Admin from '../views/forAdmin/AdminPage.vue'
 import Info from '../components/InfoComponent.vue'
 import Something from '../components/SomethingComponent.vue'
 
+import Unknown from '../views/common/UnknownPage.vue';
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -37,6 +39,11 @@ Vue.use(VueRouter)
           component: Something
         }
       ]
+    },
+    {
+      path: '/*/',
+      name: 'Unknown',
+      component: Unknown
     }
   ]
 

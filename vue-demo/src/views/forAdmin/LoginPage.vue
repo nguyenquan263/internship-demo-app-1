@@ -2,7 +2,7 @@
     <div class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" v-on:keyup.enter="loginClick()">
 
         <div class="col-xl-5 col-lg-7 col-md-9">
 
@@ -16,7 +16,7 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Sign In</h1>
                     </div>
-                    <form class="user"  v-on:keyup.enter="loginClick">
+                    <div class="user">
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" id="txtUsername" placeholder="Username..." v-model="loginData.username">
                         </div>
@@ -27,7 +27,7 @@
                             <button class="btn btn-primary btn-user btn-block" v-on:click="loginClick">Login</button>
                         </div>
                         
-                    </form>
+                    </div>
 
                     </div>
                 </div>
@@ -49,7 +49,6 @@ import router from '../../router';
 
 
 export default {
-    name: 'login',
     data: function() {
         return {
             loginData: {

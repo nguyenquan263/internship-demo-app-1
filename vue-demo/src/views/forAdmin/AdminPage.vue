@@ -9,7 +9,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
 
           <!-- <img width="45px" height="45px" class="rounded-circle" src="../assets/commons/images/tich-logo.jpg"> -->
@@ -39,7 +39,7 @@
 
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Content:</h6>
-            <router-link to="/admin/info"><a class="collapse-item" href="#">Something else ...</a></router-link>
+            <router-link to="/admin/something"><a class="collapse-item" href="#">Something else ...</a></router-link>
           </div>
         </div>
       </li>
@@ -52,14 +52,14 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Content:</h6>
-            <router-link to="/admin/info"><a class="collapse-item" href="#">Info</a></router-link>
+            <!-- <router-link to="/admin/info"><a class="collapse-item" href="#">Info</a></router-link> -->
             <router-link to="/admin/something"><a class="collapse-item" href="#">Something else ...</a></router-link>
           </div>
 
-          <div class="bg-white py-2 collapse-inner rounded">
+          <!-- <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Content:</h6>
             <router-link to="/admin/info"><a class="collapse-item" href="#">Something else ...</a></router-link>
-          </div>
+          </div> -->
         </div>
       </li>
 
@@ -150,11 +150,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <!-- <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
@@ -209,10 +209,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Are you sure to log out?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <button class="btn btn-primary" v-on:click="logOut()" data-dismiss="modal" >Logout</button>
+          <button class="btn btn-danger" v-on:click="logOut()" data-dismiss="modal" >Logout</button>
         </div>
       </div>
     </div>
@@ -229,7 +229,6 @@ import router from '../../router';
 
 
 export default {
-    
     data: function() {
       return {
         currentUserData: null
@@ -247,8 +246,8 @@ export default {
       this.currentUserData = this.$store.state.login.currentUser;
 
       if (this.currentUserData) {
-        console.log(this.currentUserData);
-        console.log(this.currentUserData.data.token);
+        // console.log(this.currentUserData);
+        // console.log(this.currentUserData.data.token);
       } else {
         alert("You don't have authorization!")
         router.push('/admin/login');

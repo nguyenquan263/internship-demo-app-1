@@ -51,7 +51,7 @@
     </div>
     <div class="form-group col-md-6">
       <label></label>
-      <p>Ex: XXX XXX XXXX</p>
+      <p>Ex: (+XX) XXX XXX XXXX</p>
     </div>
   </div>
   <div class="form-row mb-4">
@@ -66,7 +66,7 @@
 
 </div>
   <div class="container card mt-4 o-hidden border border-primary border-2 shadow-lg my-5" v-if="!isRegistering">
-    Done
+    <p class="m-5 text-primary">Your registration has been sent!</p>
   </div>
 </div>
 </template>

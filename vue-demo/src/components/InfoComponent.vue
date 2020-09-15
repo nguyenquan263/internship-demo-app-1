@@ -88,7 +88,7 @@
                         </div>
                         <div class="form-group col-md-6">
                           <label></label>
-                          <p>Ex: XXX XXX XXXX</p>
+                          <p>Ex: (+XX) XXX XXX XXXX</p>
                         </div>
                       </div>
                     
@@ -96,7 +96,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="btnSave" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
                 </div>
             </div>
@@ -118,7 +118,8 @@ export default {
             states: [],
             info: {},
             hasError: false,
-            errorString: ""
+            errorString: "",
+            authorizeToken: ""
         }
         
     },
@@ -175,9 +176,14 @@ export default {
     },
     created() {
       let self = this;
+
+      this.authorizeToken = this.$store.state.login.currentUser.data.token;
+
+      console.log(this.authorizeToken);
+
       axios.get(APILink.stateGetterLink)
       .then(function(response) {
-        console.log(response.data);
+        // console.log(response.data);
         self.states = response.data;
       })
       .catch(function(err) {
@@ -195,7 +201,7 @@ export default {
                 "sLengthMenu": "Display _MENU_ records",
             },
 
-            lengthMenu: [5, 7, 10],
+            lengthMenu: [5, 10, 20],
             columnDefs: [
                 { orderable: false, targets: [0, 4] }
             ],
@@ -219,7 +225,7 @@ export default {
                 }
             ],
             initComplete: function (settings, json) {
-                self.loadAllInfo().then(data => {
+                self.loadAllInfo(self.authorizeToken).then(data => {
                     loadTable(data, settings.oInstance.api());
                 });
 
@@ -240,7 +246,7 @@ export default {
                 tbl.rows.add(data.data); // Add new data
                 tbl.columns.adjust().draw(); // Redraw the DataTable
                 
-                console.log(data.data);
+                // console.log(data.data);
                 currentInfo = data.data;
 
             } else {
@@ -364,7 +370,7 @@ export default {
                         },
                         cancel: {
                             text: 'No',
-                            btnClass: 'btn-warning',
+                            btnClass: 'btn-danger',
                             action: function(){}
                         }
                     }
@@ -381,8 +387,6 @@ export default {
                 });
 
                 console.log(targetInfo);
-
-
                 $("#popup").modal('show');
               
                 $('#inputName').val(targetInfo.fullname);
@@ -401,14 +405,14 @@ export default {
 </script>
 
 <style scoped>
-.app-table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
+  .app-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
 
-.app-table-responsive.table-bordered {
-  border: 0;
-}
+  .app-table-responsive.table-bordered {
+    border: 0;
+  }
 </style>
