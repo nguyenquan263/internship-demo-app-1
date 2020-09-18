@@ -11,11 +11,11 @@ import './assets/admin-site/css/sb-admin-2.min.css';
 import './assets/commons/jquery.dataTables.min.css';
 import './assets/commons/toastr.min.css';
 import './assets/commons/jquery-confirm.min.css';
-// import './assets/for-client/css/agency.min.css';
-// import './assets/for-client/font/font1.css';
-// import './assets/for-client/font/font2.css';
-// import './assets/for-client/font/font3.css';
-// import './assets/for-client/font/font4.css';
+import './assets/for-client/css/agency.min.css';
+import './assets/for-client/font/font1.css';
+import './assets/for-client/font/font2.css';
+import './assets/for-client/font/font3.css';
+import './assets/for-client/font/font4.css';
 import './assets/commons/summernote.min.css';
 
 import './assets/commons/jquery-global';

@@ -280,7 +280,15 @@ export default {
                 self.checkInput();
 
                 if (self.hasError == false) {
-                  self.addInfo(self.info).then(response => {
+
+                  var addData = {
+                    data: self.info,
+                    token: self.authorizeToken
+                  }
+
+                  console.log(addData);
+
+                  self.addInfo(addData).then(response => {
                     getBackendCRUDResponse(response);
 
                     $('#inputName').val("");
@@ -291,7 +299,7 @@ export default {
                     $('#inputPhone').val("");
                     $("#popup").modal('hide');
 
-                    self.loadAllInfo().then(data => {
+                    self.loadAllInfo(self.authorizeToken).then(data => {
                         loadTable(data, tbl);
                     });
                   });
@@ -320,7 +328,14 @@ export default {
 
                 if (self.hasError == false) {
 
-                  self.updateInfo(updateInfo)
+                  var updateData = {
+                    data: updateInfo,
+                    token: self.authorizeToken
+                  }
+
+                  console.log(updateData);
+                  
+                  self.updateInfo(updateData)
                   .then(response => {
                       console.log(response);
                       getBackendCRUDResponse(response);
@@ -333,7 +348,7 @@ export default {
                       $('#inputPhone').val("");
                       $("#popup").modal('hide');
 
-                      self.loadAllInfo().then(data => {
+                      self.loadAllInfo(self.authorizeToken).then(data => {
                           loadTable(data, tbl);
                       });
                   });
@@ -359,10 +374,18 @@ export default {
                             btnClass: 'btn-primary',
                             keys: ['enter'],
                             action: function(){
-                                self.deleteInfo(rowId).then(response => {
+                                
+                                var deleteInfo = {
+                                  rowID: rowId,
+                                  token: self.authorizeToken
+                                }
+
+                                console.log(deleteInfo);
+
+                                self.deleteInfo(deleteInfo).then(response => {
                                     getBackendCRUDResponse(response);
 
-                                    self.loadAllInfo().then(data => {
+                                    self.loadAllInfo(self.authorizeToken).then(data => {
                                         loadTable(data, tbl);
                                     });
                                 });
